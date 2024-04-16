@@ -10,3 +10,7 @@ header {
     color: var(--text-color);
   
 }
+
+#icon {
+    cursor: pointer;
+}
