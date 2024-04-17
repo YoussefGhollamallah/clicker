@@ -46,6 +46,8 @@ body {
   border-radius: 15px;
   padding: 10px 20px;
   cursor: pointer;
+  position: relative;
+  margin-bottom: 20px;
 }
 
 .mid-section h4 {
@@ -73,6 +75,18 @@ body {
   gap: 5px;
 }
 
-/* .next-level-info {
-    position: absolute;
-} */
+.next-level-info {
+  position: absolute;
+  right: -180px;
+  text-align: center;
+  padding-left: 10px;
+  padding-right: 10px;
+  height: 80px;
+  width: 140px;
+  display: none;
+  background-color: rgb(90, 90, 90);
+}
+
+.upgrade:hover .next-level-info {
+  display: block;
+}
