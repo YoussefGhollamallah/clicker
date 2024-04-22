@@ -1,10 +1,17 @@
-import { click } from "./click.js";
-import { autoclic } from "./autoclicker.js";
+import { autoclic } from './autoclicker.js';
+import { click } from './click.js';
 
-click()
+// Appelez la fonction autoclic pour lier le clic automatique
+autoclic();
 
-autoclic()
+// Appelez la fonction click pour lier le clic manuel
+click();
 
-// localStorage.setItem("totalPetitBeurre", 5);
 
+function init() {
+    let petitbeurredata = JSON.parse(localStorage.getItem("petitbeurre"))
+    let num = document.getElementById("num")
+    num.innerText = petitbeurredata
+}
 
+window.onload = init()
