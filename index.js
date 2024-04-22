@@ -13,6 +13,15 @@ let pickaxeLevel = document.querySelector(".pickaxe-level");
 let pickaxeIncrease = document.querySelector(".pickaxe-increase");
 let parsedPickaxeIncrease = parseFloat(pickaxeIncrease.innerHTML);
 
+let minerCost = document.querySelector(".miner-cost");
+let parsedMinerCost = parseFloat(minerCost.innerHTML);
+let minerLevel = document.querySelector(".miner-level");
+let minerIncrease = document.querySelector(".miner-increase");
+let parsedMinerIncrease = parseFloat(minerIncrease.innerHTML);
+
+let pbpcText = document.getElementById("pbpc-text");
+let pbpsText = document.getElementById("pbps-text");
+
 let pbpc = 1;
 let pbps = 0;
 
@@ -58,7 +67,25 @@ function buyPickaxe() {
   }
 }
 
+function buyMiner() {
+  if (parsedPetitBeurre >= parsedMinerCost) {
+    petitBeurre.innerHTML = Math.round(parsedPetitBeurre -= parsedMinerCost);
+
+    minerLevel.innerHTML++;
+
+    parsedMinerIncrease = parseFloat((parsedMinerIncrease * 1.03).toFixed(2));
+    minerIncrease.innerHTML = parsedMinerIncrease;
+    pbps += parsedMinerIncrease;
+
+    parsedMinerCost *= 1.18;
+    minerCost.innerHTML = Math.round(parsedMinerCost);
+  }
+}
+
 setInterval(() => {
   parsedPetitBeurre += pbps / 10;
   petitBeurre.innerHTML = Math.round(parsedPetitBeurre);
+  pbpcText.innerHTML = Math.round(pbpc);
+  pbpsText.innerHTML = Math.round(pbps)
 }, 100);
+
